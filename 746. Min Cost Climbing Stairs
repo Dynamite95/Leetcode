@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        
+        //getting the size of the cost vector 
+        int n = cost.size();
+        
+        //initialising a vector named dp
+        vector <int> dp(n);
+        
+        //setting the base cases
+        dp[0] = cost[0];
+        dp[1] = cost[1];        
+        
+        //storing the values using the for loop inorder to avoid recalculation
+        for(int i=2;i<n;i++)
+        {
+            dp[i] = cost[i] + min(dp[i-1],dp[i-2]);
+        }
+        
+        // calling out the value to be returned
+        return min(dp[n-1],dp[n-2]);
+    }
+};
