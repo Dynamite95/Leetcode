@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int climbStairs(int n) {
+    
+        //using the top down fibonacci approach we see        
+        vector<int> v(n+1);
+        
+        //setting the base cases for fibonacci 
+        v[0] = 1;
+        v[1] = 2;
+        
+        //storing the values in the array named v
+        for(int i=2;i<n;i++)
+        {
+             v[i] = v[i-1] +v[i-2];
+        }
+        
+        return v[n-1];
+    }
+};
